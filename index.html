@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sky City By Ponnam Developers</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* style.css - Inline for brevity */
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        .popup-content {
+            text-align: center;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .whatsapp-icon,
+        .call-icon {
+            width: 30px;
+            height: 30px;
+            margin-top: 10px;
+        }
+
+        .slideshow-container {
+            max-width: 800px;
+            position: relative;
+            margin: auto;
+        }
+
+        .mySlides {
+            display: none;
+        }
+
+        .mySlides img {
+            width: 100%;
+        }
+
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .project-summary {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .summary-item {
+            text-align: center;
+            margin: 10px;
+            width: 20%;
+        }
+
+        .summary-value {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .summary-label {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .project-description {
+            padding: 20px;
+        }
+
+        .location-advantages {
+            text-align: center;
+            padding: 50px;
+        }
+
+        .category {
+            display: inline-block;
+            width: 200px;
+            margin: 20px;
+            text-align: left;
+        }
+
+        .icon {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .icon.loaded {
+            opacity: 1;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 5px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+
+        li.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Sky City By Ponnam Developers Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">Location</a></li>
+                <li><a href="#">Virtual Site Tour</a></li>
+                <li><a href="#">Brochure</a></li>
+            </ul>
+        </nav>
+        <button class="organize-visit">Organize Site Visit +91 7666309447</button>
+    </header>
+
+    <section class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="image1.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <img src="image2.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <img src="image3.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <img src="img10.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <img src="img5.png" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <img src="img6.png" style="width:100%">
+        </div>
+        
+
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+    </section>
+
+    <section class="map-section">
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.4261219142704!2d72.8108882!3d19.437186299999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7a9367387b2db%3A0x5b1d12ab70c158a6!2sSky%20City%20by%20Unique%20%26%20Poonam%20Developers!5e0!3m2!1sen!2sin!4v1741722110235!5m2!1sen!2sin" width="100%" height="450" style="border:0; filter: blur(5px);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <section class="project-summary">
+        <div class="summary-item">
+            <div class="summary-value">4</div>
+            <div class="summary-label">Land Parcel</div>
+        </div>
+        <div class="summary-item">
+            <div class="summary-value">5</div>
+            <div class="summary-label">Towers</div>
+        </div>
+        <div class="summary-item">
+            <div class="summary-value">G+22</div>
+            <div class="summary-label">Floors</div>
+        </div>
+        <div class="summary-item">
+            <div class="summary-value">1BHK,2BHK</div>
+            <div class="summary-label">Config</div>
+        </div>
+        <div class="summary-item">
+            <div class="summary-value">1bhk from 31 - 40 lakh</div>
+            <div class="summary-label">Sky City Price</div>
+        </div>
+        <div class="summary-item">
+            <div class="summary-value">2bhk from 60 lakh</div>
+            <div class="summary-label">Sky City Price</div>
+        </div>
+        <div class="summary-item">
+            <div class="summary-value">P99000045278</div>
+            <div class="summary-label">RERA No.</div>
+        </div>
+    </section>
+
+    <section class="project-description">
+        <h2>About Poonam Sky City</h2>
+        <p>Poonam Virar West Project Overview</p>
+        <p>Poonam Sky City Project will be constructed on 4 acres of land parcel, 5 towers with G+22 floors having 1 RK, 1 BHK, 2BHK premium residences.</p>
+    </section>
+
+    <div class="location-advantages">
+        <h2>LOCATION ADVANTAGES</h2>
+        <p class="tagline">A world within your reach</p>
+
+        <div class="category">
+            <img src="connect.png" alt="Connectivity Icon" class="icon">
+            <h3>Connectivity</h3>
+            <ul>
+                <li>Railway Station - 8 min</li>
+                <li>Bus Stop - 1 min</li>
+                <li>Proposed Metro - 2 min</li>
+                <li>Auto Stand - 2 min</li>
+                <li>Petrol Pump - 7 min</li>
+            </ul>
+        </div>
+
+        <div class="category">
+            <img src="hospital.png" alt="Hospital Icon" class="icon">
+            <h3>Hospital</h3>
+            <ul>
+                <li>Riddhi Vinayak Multispeciality Hospital - 1 min</li>
+                <li>Sahayog Hospital - 8 min</li>
+            </ul>
+        </div>
+
+        <div class="category">
+            <img src="bank.png" alt="Bank Icon" class="icon">
+            <h3>Banks</h3>
+            <ul>
+                <li>ICICI Bank - 3 min</li>
+                <li>HDFC Bank - 5 min</li>
+                <li>Axis Bank - 7 min</li>
+            </ul>
+        </div>
+
+        <div class="category">
+            <img src="school.png" alt="Education Icon" class="icon">
+            <h3>Education</h3>
+            <ul>
+                <li>St. Xaviers High School - 5 min</li>
+                <li>Ryan International School - 10 min</li>
+                <li>Little Angels School - 7 min</li>
+            </ul>
+        </div>
+
+        <div class="category">
+            <img src="shopping.png" alt="Shopping Icon" class="icon">
+            <h3>Shopping</h3>
+            <ul>
+                <li>DMart - 5 min</li>
+                <li>Reliance Fresh - 7 min</li>
+                <li>Big Bazaar - 10 min</li>
+            </ul>
+        </div>
+
+        <div class="category">
+            <img src="restaurant.png" alt="Restaurant Icon" class="icon">
+            <h3>Restaurants</h3>
+            <ul>
+                <li>McDonalds - 5 min</li>
+                <li>Dominos - 7 min</li>
+                <li>Pizza Hut - 10 min</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="bottom-form-container">
+        <h2>Get in Touch</h2>
+        <p>Fill in your details to book a free site visit.</p>
+        <form id="bottomForm">
+            <input type="text" id="bottomFullName" placeholder="Full Name" required>
+            <input type="tel" id="bottomPhoneNumber" placeholder="📞 Phone Number" required>
+            <input type="email" id="bottomEmailAddress" placeholder="✉ Email Address" required>
+            <button type="submit">Submit</button>
+        </form>
+        <p style="margin-top: 10px;">No Stamp Duty | Registration, GST & No Pre EMI Till Fitout</p>
+        <a href="https://wa.me/7666309447" target="_blank">
+            <img src="whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
+        </a>
+        <a href="tel:7666309447">
+            <img src="call.png" alt="Call" class="call-icon">
+        </a>
+    </div>
+
+    <footer>
+        <p> Disclaimer: The content is for informational purposes only and does not constitute an offer to sell any service. 
+        Prices mentioned are subjective and determined by the builder, subject to change and availability. 
+        Properties mentioned are subject to availability; images are for representation purposes only.</p>
+    </footer>
+
+    <!-- Popup Container -->
+    <div class="popup" id="promoPopup">
+        <div class="popup-content">
+            <span class="close-btn" id="closePopup" onclick="closePopup()">&times;</span>
+            <h2>Register Now</h2>
+            <p>Fill in your details to book a free site visit.</p>
+            <input type="text" id="popupFullName" placeholder="Full Name" required>
+            <input type="tel" id="popupPhoneNumber" placeholder="📞 Phone Number" required>
+            <input type="email" id="popupEmailAddress" placeholder="✉ Email Address" required>
+            <a href="https://wa.me/7666309447" target="_blank">
+                <img src="whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
+            </a>
+            <a href="tel:7666309447">
+                <img src="call.png" alt="Call" class="call-icon">
+            </a>
+            <button onclick="submitPopupForm()">Submit</button>
+            <p style="margin-top: 10px;">No Stamp Duty | Registration, GST & No Pre EMI Till Fitout</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1
+            }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 2000);
+        }
+
+        function showPopup() {
+            document.getElementById('promoPopup').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('promoPopup').style.display = 'none';
+        }
+
+        function submitPopupForm() {
+            var fullName = document.getElementById('popupFullName').value;
+            var phoneNumber = document.getElementById('popupPhoneNumber').value;
+            var emailAddress = document.getElementById('popupEmailAddress').value;
+
+            console.log('Popup form submitted:', {
+                fullName: fullName,
+                phoneNumber: phoneNumber,
+                emailAddress: emailAddress
+            });
+
+            alert('Thank you for your submission!');
+            closePopup();
+        }
+
+        window.onload = showPopup;
+
+        window.addEventListener('load', () => {
+            const icons = document.querySelectorAll('.icon');
+            icons.forEach((icon, index) => {
+                setTimeout(() => {
+                    icon.classList.add('loaded');
+                }, 300 * index);
+            });
+
+            const listItems = document.querySelectorAll('li');
+            listItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('loaded');
+                }, 200 * index);
+            });
+        });
+    </script>
+</body>
+</html>
